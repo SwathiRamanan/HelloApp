@@ -3,18 +3,17 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         String resultName = "World";
+
         if (args.length > 0) {
             StringBuilder nameBuilder = new StringBuilder();
-            boolean isFirst = true;
-            for (String name : args) {
-                if (!isFirst) {
-                    nameBuilder.append(", ");
-                }
 
-                nameBuilder.append(name);
-                isFirst = false;
+            for (String name : args) {
+                nameBuilder.append(name).append(", ");
             }
-            resultName = nameBuilder.toString();
+
+            if (nameBuilder.length() > 0) {
+                resultName = nameBuilder.substring(0, nameBuilder.length() - 2);
+            }
         }
 
         System.out.println("Hello, " + resultName + "!");
