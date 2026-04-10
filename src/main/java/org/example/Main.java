@@ -2,18 +2,21 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        String name = "World";
+        String resultName = "World";
         if (args.length > 0) {
             StringBuilder nameBuilder = new StringBuilder();
-
-            for (int i = 0; i < args.length; i++) {
-                nameBuilder.append(args[i]);
-                if (i < args.length - 1) {
+            boolean isFirst = true;
+            for (String name : args) {
+                if (!isFirst) {
                     nameBuilder.append(", ");
                 }
+
+                nameBuilder.append(name);
+                isFirst = false;
             }
-            name = nameBuilder.toString();
+            resultName = nameBuilder.toString();
         }
-        System.out.println("Hello, " + name + "!");
+
+        System.out.println("Hello, " + resultName + "!");
     }
 }
